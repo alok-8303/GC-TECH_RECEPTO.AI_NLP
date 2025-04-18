@@ -1,7 +1,7 @@
 
-!pip install -q facenet-pytorch torchvision pillow
+# !pip install -q facenet-pytorch torchvision pillow
 
-!pip install -q pillow --upgrade
+# !pip install -q pillow --upgrade
 
 import json, os
 import google.generativeai as genai
@@ -94,7 +94,7 @@ api_key = 'your api key'
 genai.configure(api_key=api_key)
 gemini_model = genai.GenerativeModel("gemini-2.0-flash")  # Renamed from 'model' to 'gemini_model'
 
-# Matching function
+# Matching function 
 def get_best_match(persona, profiles_subset):
     prompt = build_prompt(persona, profiles_subset)
     response = gemini_model.generate_content(prompt)  # Use gemini_model instead of model
