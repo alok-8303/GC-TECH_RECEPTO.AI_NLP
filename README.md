@@ -119,6 +119,51 @@ This project requires valid API keys for:
 - BrightData Dataset API
 
 ---
+## 🔁 Optional Path: Using Proxycurl Instead of BrightData
+## 🧩 `proxy.js` – Profile Scraper via Proxycurl
+
+**Purpose:**  
+Replaces BrightData-based scraping with a refined and robust LinkedIn profile extraction using Proxycurl.
+
+**Key Technologies:**
+- **API:** Proxycurl API v2
+- **Language:** JavaScript (Node.js)
+- **Features:**  
+  - Caching and retry queue for stability  
+  - Batching with adaptive backoff  
+  - Extracts details like education, skills, languages, projects, certifications, and more
+
+**Input:**  
+- `final.json`  
+- `linkedin_results.json`
+
+**Output:**  
+- `final_cleaned_linkedin_profiles.json`
+
+---
+
+## 🧪 `match.py` – Matching Persona to Profile (Proxycurl Version)
+
+**Purpose:**  
+Validates LinkedIn profiles scraped via Proxycurl by combining:
+- **Textual similarity** using Gemini AI
+- **Facial similarity** using FaceNet embeddings
+
+**Key Enhancements:**
+- Combines **text score (70%)** and **face score (30%)**
+- Uses Gemini AI to directly return a **score between 0 and 1**
+- Saves best match and scores to `output.json` and individual JSON files per persona
+
+**Input:**  
+- `final.json`  
+- `final_cleaned_linkedin_profiles.json` (from Proxycurl)
+
+**Output:**  
+- `output.json`  
+- `matches/persona_X_matched_result.json`
+
+---
+
 
 ## 📥 Input Files
 
